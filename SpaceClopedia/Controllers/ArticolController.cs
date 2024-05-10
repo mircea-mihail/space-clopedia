@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using SpaceClopedia.ContextModels;
 using SpaceClopedia.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SpaceClopedia.Controllers
 {
@@ -35,8 +38,41 @@ namespace SpaceClopedia.Controllers
             {
                 return View("Error", "Home");
             }
-            
+
             return View(ArticolCurent);
+        }
+
+        [HttpGet]
+        public IActionResult AdaugaArticol()
+        {
+            List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
+
+            ViewBag.Domenii = domenii;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AdaugaArticol(ArticolModel articolNou)
+        {
+            if(!ModelState.IsValid)
+            {
+                List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
+
+                ViewBag.Domenii = domenii;
+
+                return View(articolNou);
+            }
+
+            //procesare
+            //POST-- > functie de procesare a continutului --> face split dupa continutul text si titlul de imagine
+            //    --> se adauga implicit data creare si modif, versionare 0, autor modificare = autor
+
+            articolNou.Domeniu = _context.Domeniu.Where(domeniu => domeniu.Id == articolNou.Domeniu.Id).FirstOrDefault();
+            _context.Add(articolNou);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
