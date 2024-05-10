@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using SpaceClopedia.ContextModels;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<SpaceClopediaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SpaceClopedia")));
 
 var app = builder.Build();
 

@@ -1,0 +1,17 @@
+﻿@model List<ArticolModel>
+
+@{
+    List<ArticolModel> articole = Model;
+    ViewData["Title"] = "SpaceClopedia";
+}
+
+<h1>Articolele mele super tari</h1>
+
+@{
+    foreach(ArticolModel articol in articole)
+    {
+        // <h2>@articol.Titlu</h2>
+        // <p>@articol.Continut</p>
+        <h3><a asp-controller="Articol" asp-action="Articol" asp-route-id-articolId="@articol.Id">@articol.Titlu</a></h3>
+    }
+}

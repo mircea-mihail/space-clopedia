@@ -1,0 +1,16 @@
+﻿@model ArticolModel 
+
+@{
+    ArticolModel articol = Model;
+    ViewData["Title"] = articol.Titlu;
+}
+
+<h2>@articol.Titlu</h2>
+
+<article>
+    <h3>Autor: @articol.Autor</h3>
+    <p>Adaugat la data de: @articol.DataCreare</p>
+    <p>Ultima modificare la data de: @articol.DataModificare</p>
+    <p>Categorie: @articol.Domeniu!.NumeDomeniu</p>
+    <p>@articol.Continut</p>
+</article>

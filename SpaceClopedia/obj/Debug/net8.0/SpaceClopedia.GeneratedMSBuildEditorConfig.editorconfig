@@ -18,6 +18,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\xelar\OneDrive\Desktop\space-clopedia\SpaceClopedia
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/xelar/OneDrive/Desktop/space-clopedia/SpaceClopedia/Views/Articol/AdaugaArticol.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNvbFxBZGF1Z2FBcnRpY29sLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/xelar/OneDrive/Desktop/space-clopedia/SpaceClopedia/Views/Articol/Articol.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNvbFxBcnRpY29sLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/xelar/OneDrive/Desktop/space-clopedia/SpaceClopedia/Views/Articol/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWNvbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/xelar/OneDrive/Desktop/space-clopedia/SpaceClopedia/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
