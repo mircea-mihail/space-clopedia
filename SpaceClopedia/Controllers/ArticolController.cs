@@ -122,6 +122,7 @@ namespace SpaceClopedia.Controllers
             ArticolModel articolModel = _context.Articol.Where(articol => articol.Titlu == articol.Titlu).OrderBy(articol => articol.DataModificare).LastOrDefault();
             articol.Titlu = articolModel.Titlu;
             articol.DataModificare = DateTime.Now;
+            articol.DataCreare = articolModel.DataCreare;
             articol.NumarVersiune = articolModel.NumarVersiune + 1;
             articol.AutorModificare = "Anonymous";
 

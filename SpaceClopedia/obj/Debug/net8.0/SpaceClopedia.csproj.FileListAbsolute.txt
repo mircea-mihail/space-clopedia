@@ -135,3 +135,4 @@ C:\Users\xelar\OneDrive\Desktop\space-clopedia\SpaceClopedia\bin\Debug\net8.0\ru
 C:\Users\xelar\OneDrive\Desktop\space-clopedia\SpaceClopedia\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\xelar\OneDrive\Desktop\space-clopedia\SpaceClopedia\obj\Debug\net8.0\SpaceClopedia.csproj.AssemblyReference.cache
 C:\Users\xelar\OneDrive\Desktop\space-clopedia\SpaceClopedia\obj\Debug\net8.0\SpaceClo.100699C7.Up2Date
+C:\Users\xelar\OneDrive\Desktop\space-clopedia\SpaceClopedia\bin\Debug\net8.0\Markdig.dll

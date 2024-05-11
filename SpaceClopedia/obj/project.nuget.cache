@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "whJzFB1HeGMpt4QsGSIMxKGV8QYY2PhyhXr57aZlK6wEOtJ5jkjT/MZ54dgeM/63oCsE2xwJZtf+h+p+q1LHAA==",
+  "dgSpecHash": "g21f0N/zfy9H6CNH9qQNCVEksQkALhZsf43Ala6xvrC0ttSaEv9ycyONoBZLpzX/dityfeDg4rnOy0XjQUGDog==",
   "success": true,
   "projectFilePath": "C:\\Users\\xelar\\OneDrive\\Desktop\\space-clopedia\\SpaceClopedia\\SpaceClopedia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xelar\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\xelar\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\xelar\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\xelar\\.nuget\\packages\\markdig\\0.37.0\\markdig.0.37.0.nupkg.sha512",
     "C:\\Users\\xelar\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\xelar\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "C:\\Users\\xelar\\.nuget\\packages\\microsoft.codeanalysis.common\\4.5.0\\microsoft.codeanalysis.common.4.5.0.nupkg.sha512",

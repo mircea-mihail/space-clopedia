@@ -1,8 +1,11 @@
 ﻿@model ArticolModel 
+@using Markdig;
 
 @{
     ArticolModel articol = Model;
     ViewData["Title"] = articol.Titlu;
+    // var markdownContent = Html.Raw(Html.Encode(articol.Continut).Replace("&#xD;&#xA;", "<br />"));
+    var htmlContent = Markdown.ToHtml(articol.Continut);
 }
 
 <h2>@articol.Titlu</h2>
@@ -12,7 +15,11 @@
     <p>Adaugat la data de: @articol.DataCreare</p>
     <p>Ultima modificare la data de: @articol.DataModificare</p>
     <p>Categorie: @articol.Domeniu!.NumeDomeniu</p>
-    <p>@articol.Continut</p>
+    @* <p>@articol.Continut</p> *@
+    @* p>@Html.Raw(Html.Encode(articol.Continut).Replace("&#xD;&#xA;", "<br />"))</p> *@
+    <div>
+        @Html.Raw(htmlContent)
+    </div>
 </article>
 
 <a asp-controller="Articol" asp-action="Index">Intoarce-te</a>
