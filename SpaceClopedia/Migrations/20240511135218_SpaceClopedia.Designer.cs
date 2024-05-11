@@ -12,7 +12,7 @@ using SpaceClopedia.ContextModels;
 namespace SpaceClopedia.Migrations
 {
     [DbContext(typeof(SpaceClopediaContext))]
-    [Migration("20240510092240_SpaceClopedia")]
+    [Migration("20240511135218_SpaceClopedia")]
     partial class SpaceClopedia
     {
         /// <inheritdoc />
@@ -34,27 +34,25 @@ namespace SpaceClopedia.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Autor")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AutorModificare")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Continut")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DataCreare")
+                    b.Property<DateTime?>("DataCreare")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DataModificare")
+                    b.Property<DateTime?>("DataModificare")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("DomeniuId")
                         .HasColumnType("int");
 
-                    b.Property<int>("NumarVersiune")
+                    b.Property<int?>("NumarVersiune")
                         .HasColumnType("int");
 
                     b.Property<string>("Titlu")
@@ -62,7 +60,6 @@ namespace SpaceClopedia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TitluPoza")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -105,6 +102,10 @@ namespace SpaceClopedia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Parola")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ParolaConfirm")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

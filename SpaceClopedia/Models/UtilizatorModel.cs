@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using SpaceClopedia.Logic;
 using SpaceClopedia.Models;
 
 namespace SpaceClopedia.Models
@@ -9,7 +10,8 @@ namespace SpaceClopedia.Models
         public string NumeUtilizator { get; set; }
         //Rol -- 0(admin), 1(moderator), 2(utlizator obisnuit)
         public string Parola { get; set; }
-        public int Rol { get; set; }
+        public string ParolaConfirm { get; set; }
+        public Rol Rol { get; set; }
         public DateTime DataInregistrare { get; set; }
 
         //public UtilizatorModel(int _Id, string _NumeUtilizator, string _Parola, int _Rol, DateTime _DataInregistrare)

@@ -32,6 +32,7 @@ namespace SpaceClopedia.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumeUtilizator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Parola = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ParolaConfirm = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rol = table.Column<int>(type: "int", nullable: false),
                     DataInregistrare = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -49,12 +50,12 @@ namespace SpaceClopedia.Migrations
                     DomeniuId = table.Column<int>(type: "int", nullable: false),
                     Titlu = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Continut = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TitluPoza = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Autor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AutorModificare = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DataCreare = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataModificare = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    NumarVersiune = table.Column<int>(type: "int", nullable: false)
+                    TitluPoza = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Autor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AutorModificare = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DataCreare = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DataModificare = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    NumarVersiune = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

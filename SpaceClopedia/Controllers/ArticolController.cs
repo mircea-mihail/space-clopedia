@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using SpaceClopedia.ContextModels;
 using SpaceClopedia.Models;
+using System.Diagnostics;
+using System.Drawing;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SpaceClopedia.Controllers
@@ -20,8 +22,21 @@ namespace SpaceClopedia.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            Articole = _context.Articol.ToList();
-            if(Articole == null)
+            Articole = _context.Articol.OrderBy(articol => articol.Titlu).ToList();
+            var lenArticole = Articole.Count;
+            int index = 0;
+            while(index < lenArticole - 1)
+            {
+                while (Articole[index].Titlu == Articole[index + 1].Titlu)
+                {
+                    Articole.RemoveAt(index);
+                    lenArticole--;
+                }
+
+                index++;
+            }
+
+            if (Articole == null)
             {
                 return View("Error", "Home");
             }
@@ -55,7 +70,12 @@ namespace SpaceClopedia.Controllers
         [HttpPost]
         public IActionResult AdaugaArticol(ArticolModel articolNou)
         {
-            if(!ModelState.IsValid)
+            articolNou.DataCreare = DateTime.Now;
+            articolNou.DataModificare = DateTime.Now;
+            articolNou.NumarVersiune = 0;
+            articolNou.AutorModificare = articolNou.Autor;
+
+            if (!ModelState.IsValid)
             {
                 List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
 
@@ -68,11 +88,60 @@ namespace SpaceClopedia.Controllers
             //POST-- > functie de procesare a continutului --> face split dupa continutul text si titlul de imagine
             //    --> se adauga implicit data creare si modif, versionare 0, autor modificare = autor
 
-            articolNou.Domeniu = _context.Domeniu.Where(domeniu => domeniu.Id == articolNou.Domeniu.Id).FirstOrDefault();
+            articolNou.Domeniu = _context.Domeniu.Where(domeniu => domeniu.Id == articolNou.DomeniuId).FirstOrDefault();
+
+            Debug.WriteLine(articolNou.Continut.ToString());
+
             _context.Add(articolNou);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult EditeazaArticol(int articolId)
+        {
+            List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
+
+            ViewBag.Domenii = domenii;
+
+            ArticolModel? articol = _context.Articol.Where(articol => articol.Id == articolId).Include(articol => articol.Domeniu).FirstOrDefault();
+
+            if (articol == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            return View(articol);
+        }
+
+        [HttpPost]
+        public IActionResult EditeazaArticol(ArticolModel articol)
+        {
+
+            ArticolModel articolModel = _context.Articol.Where(articol => articol.Titlu == articol.Titlu).OrderBy(articol => articol.DataModificare).LastOrDefault();
+
+            articol.DataModificare = DateTime.Now;
+            articol.NumarVersiune = articolModel.NumarVersiune + 1;
+            //articol.AutorModificare = 
+
+            if (!ModelState.IsValid)
+            {
+                List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
+
+                ViewBag.Domenii = domenii;
+
+                return View(articol);
+            }
+
+            articol.Domeniu = _context.Domeniu.Where(domeniu => domeniu.Id == articol.DomeniuId).FirstOrDefault();
+
+            Debug.WriteLine(articol.Continut.ToString());
+
+            _context.Add(articol);
+            _context.SaveChanges();
+
+            return View("Articol", articol);
         }
     }
 }
