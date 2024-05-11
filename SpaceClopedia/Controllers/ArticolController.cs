@@ -120,13 +120,19 @@ namespace SpaceClopedia.Controllers
         {
 
             ArticolModel articolModel = _context.Articol.Where(articol => articol.Titlu == articol.Titlu).OrderBy(articol => articol.DataModificare).LastOrDefault();
-
+            articol.Titlu = articolModel.Titlu;
             articol.DataModificare = DateTime.Now;
             articol.NumarVersiune = articolModel.NumarVersiune + 1;
-            //articol.AutorModificare = 
+            articol.AutorModificare = "Anonymous";
 
             if (!ModelState.IsValid)
             {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                foreach (var error in errors)
+                {
+                    Debug.WriteLine(error.ErrorMessage);
+                }
+
                 List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
 
                 ViewBag.Domenii = domenii;
