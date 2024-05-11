@@ -27,7 +27,7 @@ namespace SpaceClopedia.Controllers
             int index = 0;
             while(index < lenArticole - 1)
             {
-                while (Articole[index].Titlu == Articole[index + 1].Titlu)
+                while (index < lenArticole - 1 && Articole[index].Titlu == Articole[index + 1].Titlu)
                 {
                     Articole.RemoveAt(index);
                     lenArticole--;

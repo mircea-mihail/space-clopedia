@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpaceClopedia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00985adf1fc6fd769f61fbfc14cae5434572aad4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4b0b5bd6938cec67bb210d939c914163a56fc0e")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpaceClopedia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpaceClopedia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
