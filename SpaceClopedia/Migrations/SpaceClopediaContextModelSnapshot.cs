@@ -103,7 +103,6 @@ namespace SpaceClopedia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ParolaConfirm")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Rol")

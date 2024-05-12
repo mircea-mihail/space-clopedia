@@ -12,7 +12,7 @@ using SpaceClopedia.ContextModels;
 namespace SpaceClopedia.Migrations
 {
     [DbContext(typeof(SpaceClopediaContext))]
-    [Migration("20240511135218_SpaceClopedia")]
+    [Migration("20240512140627_SpaceClopedia")]
     partial class SpaceClopedia
     {
         /// <inheritdoc />
@@ -106,7 +106,6 @@ namespace SpaceClopedia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ParolaConfirm")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Rol")

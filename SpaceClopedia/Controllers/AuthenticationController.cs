@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using SpaceClopedia.ContextModels;
 using SpaceClopedia.Models;
+using System.Security.Claims;
+using System.Diagnostics;
 
 namespace SpaceClopedia.Controllers
 {
@@ -65,6 +69,63 @@ namespace SpaceClopedia.Controllers
                 }
             }
             return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(UtilizatorModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(model.NumeUtilizator))
+                        ModelState.AddModelError(string.Empty, "Numele de utilizator este gol!");
+                    else if (string.IsNullOrWhiteSpace(model.Parola))
+                        ModelState.AddModelError(string.Empty, "Parola este goala!");
+
+                    UtilizatorModel? user = context.Utilizator.Where(user => user.NumeUtilizator!.ToLower() == model.NumeUtilizator!.ToLower() && user.Parola == model.Parola).FirstOrDefault();
+
+                    if (user != null)
+                    {
+                        List<Claim> claims = new List<Claim>
+                        {
+                            new Claim(ClaimTypes.Name, user.NumeUtilizator!),
+                            new Claim("Rol", user.Rol.ToString())
+                        };
+                        var claimIdentity = new ClaimsIdentity(claims, "AuthenticationCookie");
+
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIdentity));
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                        ModelState.AddModelError(string.Empty, "Invalid username or password!");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, "Error logging in: " + ex.Message);
+                }
+
+            }
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            foreach (var error in errors)
+            {
+                Debug.WriteLine(error.ErrorMessage);
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            if (User.Identity.IsAuthenticated == false)
+                return RedirectToAction("Index", "Home");
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
         }
     }
 }

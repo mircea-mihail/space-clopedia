@@ -10,7 +10,7 @@ namespace SpaceClopedia.Models
         public string NumeUtilizator { get; set; }
         //Rol -- 0(admin), 1(moderator), 2(utlizator obisnuit)
         public string Parola { get; set; }
-        public string ParolaConfirm { get; set; }
+        public string? ParolaConfirm { get; set; }
         public Rol Rol { get; set; }
         public DateTime DataInregistrare { get; set; }
 

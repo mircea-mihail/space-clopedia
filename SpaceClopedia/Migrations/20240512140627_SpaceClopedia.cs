@@ -32,7 +32,7 @@ namespace SpaceClopedia.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumeUtilizator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Parola = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ParolaConfirm = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ParolaConfirm = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Rol = table.Column<int>(type: "int", nullable: false),
                     DataInregistrare = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
