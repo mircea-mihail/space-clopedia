@@ -19,6 +19,12 @@
     @* p>@Html.Raw(Html.Encode(articol.Continut).Replace("&#xD;&#xA;", "<br />"))</p> *@
     <div>
         @Html.Raw(htmlContent)
+        @if (Model.Image != null)
+        {
+            <div class="article-image">
+                <img src="@Url.Action("GetImage", "Articol", new { id = Model.Id })" alt="Article Image" class="img-fluid" />
+            </div>
+        }
     </div>
 </article>
 

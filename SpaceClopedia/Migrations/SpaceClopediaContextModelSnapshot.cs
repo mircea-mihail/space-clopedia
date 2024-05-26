@@ -49,14 +49,14 @@ namespace SpaceClopedia.Migrations
                     b.Property<int>("DomeniuId")
                         .HasColumnType("int");
 
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<int?>("NumarVersiune")
                         .HasColumnType("int");
 
                     b.Property<string>("Titlu")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TitluPoza")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

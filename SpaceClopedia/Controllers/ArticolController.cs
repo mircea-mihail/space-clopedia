@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using SpaceClopedia.ContextModels;
 using SpaceClopedia.Models;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -15,9 +16,11 @@ namespace SpaceClopedia.Controllers
         private readonly SpaceClopediaContext _context;
         public List<ArticolModel>? Articole { get; set; }
         public ArticolModel? ArticolCurent { get; set; }
-        public ArticolController(SpaceClopediaContext context)
+        private readonly IWebHostEnvironment _environment;
+        public ArticolController(SpaceClopediaContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
         [HttpGet]
         public IActionResult Index()
@@ -44,6 +47,16 @@ namespace SpaceClopedia.Controllers
             //return View("Index", Articole);
             return View(Articole);
         }
+        public async Task<IActionResult> GetImage(int id)
+        {
+            var article = await _context.Articol.FindAsync(id);
+            if (article == null || article.Image == null)
+            {
+                return NotFound();
+            }
+
+            return File(article.Image, "image/jpeg"); // Adjust the MIME type as needed
+        }
 
         [HttpGet]
         public IActionResult Articol(int articolId)
@@ -68,8 +81,20 @@ namespace SpaceClopedia.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdaugaArticol(ArticolModel articolNou)
+        public async Task<IActionResult> AdaugaArticol(ArticolViewModel articol)
         {
+            //var errors = ModelState.Values.SelectMany(v => v.Errors);
+            //foreach (var error in errors)
+            //{
+            //    Debug.WriteLine(error.ErrorMessage);
+            //}
+
+            ArticolModel articolNou = new ArticolModel();
+
+            articolNou.DomeniuId = articol.DomeniuId;
+            articolNou.Titlu = articol.Titlu;
+            articolNou.Continut = articol.Continut;
+            articolNou.Autor = articol.Autor;
             articolNou.DataCreare = DateTime.Now;
             articolNou.DataModificare = DateTime.Now;
             articolNou.NumarVersiune = 0;
@@ -84,11 +109,20 @@ namespace SpaceClopedia.Controllers
                 return View(articolNou);
             }
 
-            //procesare
-            //POST-- > functie de procesare a continutului --> face split dupa continutul text si titlul de imagine
-            //    --> se adauga implicit data creare si modif, versionare 0, autor modificare = autor
+            if (articol.ImageFile != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await articol.ImageFile.CopyToAsync(memoryStream);
+                    articolNou.Image = memoryStream.ToArray();
+                }
+            }
 
-            articolNou.Domeniu = _context.Domeniu.Where(domeniu => domeniu.Id == articolNou.DomeniuId).FirstOrDefault();
+        //procesare
+        //POST-- > functie de procesare a continutului --> face split dupa continutul text si titlul de imagine
+        //    --> se adauga implicit data creare si modif, versionare 0, autor modificare = autor
+
+        articolNou.Domeniu = _context.Domeniu.Where(domeniu => domeniu.Id == articolNou.DomeniuId).FirstOrDefault();
 
             Debug.WriteLine(articolNou.Continut.ToString());
 

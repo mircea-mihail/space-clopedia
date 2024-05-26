@@ -12,7 +12,7 @@ using SpaceClopedia.ContextModels;
 namespace SpaceClopedia.Migrations
 {
     [DbContext(typeof(SpaceClopediaContext))]
-    [Migration("20240512140627_SpaceClopedia")]
+    [Migration("20240526134959_SpaceClopedia")]
     partial class SpaceClopedia
     {
         /// <inheritdoc />
@@ -52,14 +52,14 @@ namespace SpaceClopedia.Migrations
                     b.Property<int>("DomeniuId")
                         .HasColumnType("int");
 
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<int?>("NumarVersiune")
                         .HasColumnType("int");
 
                     b.Property<string>("Titlu")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TitluPoza")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
