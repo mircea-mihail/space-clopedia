@@ -55,6 +55,7 @@ namespace SpaceClopedia.Migrations
                     DataCreare = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DataModificare = table.Column<DateTime>(type: "datetime2", nullable: true),
                     NumarVersiune = table.Column<int>(type: "int", nullable: true),
+                    AccessLevel = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>

@@ -12,7 +12,7 @@ using SpaceClopedia.ContextModels;
 namespace SpaceClopedia.Migrations
 {
     [DbContext(typeof(SpaceClopediaContext))]
-    [Migration("20240526134959_SpaceClopedia")]
+    [Migration("20240526144403_SpaceClopedia")]
     partial class SpaceClopedia
     {
         /// <inheritdoc />
@@ -32,6 +32,10 @@ namespace SpaceClopedia.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AccessLevel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Autor")
                         .HasColumnType("nvarchar(max)");

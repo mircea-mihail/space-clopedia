@@ -1,13 +1,30 @@
-﻿@model ArticolModel
+﻿@using System.Diagnostics
+@model ArticolModel
 
 @{
     ViewData["Title"] = "Editeaza Articol";
     List<SelectListItem> domenii = ViewBag.Domenii;
+    List<SelectListItem> accessLevel = ViewBag.AccessLevel;
 }
 
 
 <div class="container">
     <form method="post">
+        @if (User.Identity.IsAuthenticated && User.Identity.Name == Model.Autor)
+        {
+            <div class="form-group">
+                <label asp-for="@Model.AccessLevel" class="control-label">Protected</label>
+                <select asp-for="@Model.AccessLevel" asp-items="@accessLevel" class="form-control"></select>
+                <span asp-validation-for="@Model.AccessLevel" class="text-danger"></span>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.AccessLevel" />
+            </div>
+        }
+
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <h2>@Model.Titlu</h2>
@@ -33,6 +50,7 @@
         @Html.HiddenFor(model => model.DataModificare, new { @Value = DateTime.Now.ToString("o") })
         @Html.HiddenFor(model => model.NumarVersiune, 0)
         @Html.HiddenFor(model => model.AutorModificare, "No modification")
+        
 
         <br />
         @* <input type="hidden" asp-for="@Model.Id" /> *@

@@ -15,6 +15,7 @@ namespace SpaceClopedia.Models
         public DateTime? DataCreare { get; set; }
         public DateTime? DataModificare { get; set; }
         public int? NumarVersiune { get; set; }
+        public string AccessLevel { get; set; }
         public IFormFile? ImageFile { get; set; }
     }
 }

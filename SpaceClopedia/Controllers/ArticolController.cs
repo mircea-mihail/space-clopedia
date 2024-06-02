@@ -61,7 +61,13 @@ namespace SpaceClopedia.Controllers
         [HttpGet]
         public IActionResult Articol(int articolId)
         {
-            ArticolCurent = _context.Articol.Where(articol => articol.Id == articolId).Include(articol => articol.Domeniu).FirstOrDefault();
+
+            List<SelectListItem> accessLevel = new List<SelectListItem>();
+            accessLevel.Add(new SelectListItem { Text = "Protected" });
+            accessLevel.Add(new SelectListItem { Text = "Public" });
+            ViewBag.AccessLevel = accessLevel;
+
+            ArticolCurent = _context.Articol.Where(articol => articol.Id == articolId).OrderBy(articol => articol.NumarVersiune).Include(articol => articol.Domeniu).LastOrDefault();
             if (ArticolCurent == null)
             {
                 return View("Error", "Home");
@@ -74,8 +80,12 @@ namespace SpaceClopedia.Controllers
         public IActionResult AdaugaArticol()
         {
             List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
+            List<SelectListItem> accessLevel = new List<SelectListItem>();
+            accessLevel.Add(new SelectListItem { Text = "Protected" });
+            accessLevel.Add(new SelectListItem { Text = "Public" });
 
             ViewBag.Domenii = domenii;
+            ViewBag.AccessLevel = accessLevel;
 
             return View();
         }
@@ -99,12 +109,17 @@ namespace SpaceClopedia.Controllers
             articolNou.DataModificare = DateTime.Now;
             articolNou.NumarVersiune = 0;
             articolNou.AutorModificare = articolNou.Autor;
+            articolNou.AccessLevel = articol.AccessLevel;
 
             if (!ModelState.IsValid)
             {
                 List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
+                List<SelectListItem> accessLevel = new List<SelectListItem>();
+                accessLevel.Add(new SelectListItem { Text = "Protected" });
+                accessLevel.Add(new SelectListItem { Text = "Public" });
 
                 ViewBag.Domenii = domenii;
+                ViewBag.AccessLevel = accessLevel;
 
                 return View(articolNou);
             }
@@ -136,8 +151,12 @@ namespace SpaceClopedia.Controllers
         public IActionResult EditeazaArticol(int articolId)
         {
             List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
+            List<SelectListItem> accessLevel = new List<SelectListItem>();
+            accessLevel.Add(new SelectListItem { Text = "Protected" });
+            accessLevel.Add(new SelectListItem { Text = "Public" });
 
             ViewBag.Domenii = domenii;
+            ViewBag.AccessLevel = accessLevel;
 
             ArticolModel? articol = _context.Articol.Where(articol => articol.Id == articolId).Include(articol => articol.Domeniu).FirstOrDefault();
 
@@ -152,13 +171,12 @@ namespace SpaceClopedia.Controllers
         [HttpPost]
         public IActionResult EditeazaArticol(ArticolModel articol)
         {
-
             ArticolModel articolModel = _context.Articol.Where(articol => articol.Titlu == articol.Titlu).OrderBy(articol => articol.DataModificare).LastOrDefault();
             articol.Titlu = articolModel.Titlu;
             articol.DataModificare = DateTime.Now;
             articol.DataCreare = articolModel.DataCreare;
             articol.NumarVersiune = articolModel.NumarVersiune + 1;
-            articol.AutorModificare = "Anonymous";
+            articol.AutorModificare = User.Identity.Name;
 
             if (!ModelState.IsValid)
             {
@@ -169,8 +187,12 @@ namespace SpaceClopedia.Controllers
                 }
 
                 List<SelectListItem> domenii = _context.Domeniu.Select(domeniu => new SelectListItem { Text = domeniu.NumeDomeniu, Value = domeniu.Id.ToString() }).ToList();
+                List<SelectListItem> accessLevel = new List<SelectListItem>();
+                accessLevel.Add(new SelectListItem { Text = "Protected" });
+                accessLevel.Add(new SelectListItem { Text = "Public" });
 
                 ViewBag.Domenii = domenii;
+                ViewBag.AccessLevel = accessLevel;
 
                 return View(articol);
             }

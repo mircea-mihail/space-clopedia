@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Adauga Articol";
     List<SelectListItem> domenii = ViewBag.Domenii;
+    List<SelectListItem> accessLevel = ViewBag.AccessLevel;
 }
 
 <div class="container">
@@ -31,6 +32,11 @@
             <label asp-for="@Model.DomeniuId" class="control-label">Category Id</label>
             <select asp-for="@Model.DomeniuId" asp-items="@domenii" class="form-control"></select>
             <span asp-validation-for="@Model.DomeniuId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.AccessLevel" class="control-label">Protected</label>
+            <select asp-for="@Model.AccessLevel" asp-items="@accessLevel" class="form-control"></select>
+            <span asp-validation-for="@Model.AccessLevel" class="text-danger"></span>
         </div>
 
         @Html.HiddenFor(x => x.DataCreare, new { @Value = DateTime.Now })

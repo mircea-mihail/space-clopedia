@@ -16,7 +16,8 @@ namespace SpaceClopedia.Models
         public DateTime? DataCreare { get; set; }
         public DateTime? DataModificare { get; set; }
         public int? NumarVersiune { get; set; }
-        
+        public string AccessLevel { get; set; }
+
         public byte[]? Image { get; set; }
         //public ArticolModel(int _Id, int _IdDomeniu, string _Titlu, string _Continut, string _TitluPoza, string _Autor,
         //                string _AutorModificare, DateTime _DataCreare, DateTime _DataModificare, int _NumarVersiune)

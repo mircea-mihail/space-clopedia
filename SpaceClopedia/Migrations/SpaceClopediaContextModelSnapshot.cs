@@ -30,6 +30,10 @@ namespace SpaceClopedia.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AccessLevel")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Autor")
                         .HasColumnType("nvarchar(max)");
 

@@ -53,6 +53,8 @@ namespace SpaceClopedia.Controllers
                     {
                         try
                         {
+                            model.Rol = Logic.Rol.LoggedUser;
+                            model.DataInregistrare = DateTime.Now;
                             context.Utilizator.Add(model);
                             context.SaveChanges();
                             return RedirectToAction("Index", "Home");
