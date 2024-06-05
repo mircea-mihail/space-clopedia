@@ -1,9 +1,11 @@
 ﻿@model ArticolModel 
 @using Markdig;
+@using SpaceClopedia.Logic
 
 @{
     ArticolModel articol = Model;
     ViewData["Title"] = articol.Titlu;
+    Rol? rol = ViewBag.Rol;
     // var markdownContent = Html.Raw(Html.Encode(articol.Continut).Replace("&#xD;&#xA;", "<br />"));
     var htmlContent = Markdown.ToHtml(articol.Continut);
 }
@@ -26,6 +28,10 @@
             </div>
         }
     </div>
+    @if (User.Identity.IsAuthenticated && (rol != null && ((int)rol == 0 || (int)rol == 1)))
+    {
+        <h4><a asp-controller="Articol" asp-action="RevertArticol" asp-route-articolId="@articol.Id">Reveniti la versiunea anterioara</a></h4>
+    }
 </article>
 
 <a asp-controller="Articol" asp-action="Index">Intoarce-te</a>

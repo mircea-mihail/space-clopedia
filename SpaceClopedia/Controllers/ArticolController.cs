@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using SpaceClopedia.ContextModels;
+using SpaceClopedia.Logic;
 using SpaceClopedia.Models;
 using System;
 using System.Diagnostics;
@@ -65,6 +66,16 @@ namespace SpaceClopedia.Controllers
             List<SelectListItem> accessLevel = new List<SelectListItem>();
             accessLevel.Add(new SelectListItem { Text = "Protected" });
             accessLevel.Add(new SelectListItem { Text = "Public" });
+            UtilizatorModel? utilizatorCurent = _context.Utilizator.Where(utilizator => utilizator.NumeUtilizator.ToString() == User.Identity.Name).FirstOrDefault();
+            if (utilizatorCurent != null)
+            {
+                Rol rol = new Rol();
+                rol = utilizatorCurent.Rol;
+
+                Debug.WriteLine((int)rol);
+
+                ViewBag.Rol = rol;
+            }
             ViewBag.AccessLevel = accessLevel;
 
             ArticolCurent = _context.Articol.Where(articol => articol.Id == articolId).OrderBy(articol => articol.NumarVersiune).Include(articol => articol.Domeniu).LastOrDefault();
@@ -205,6 +216,48 @@ namespace SpaceClopedia.Controllers
             _context.SaveChanges();
 
             return View("Articol", articol);
+        }
+
+        [HttpGet]
+        public IActionResult StergeArticol(int articolId)
+        {
+            ArticolModel? articol = _context.Articol
+                .Where(articol => articol.Id == articolId).Include(stire => stire.Domeniu).FirstOrDefault();
+            if (articol == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            string titluArticol = articol.Titlu;
+            List<ArticolModel>? articole = _context.Articol
+                .Where(articol => articol.Titlu == titluArticol).Include(stire => stire.Domeniu).ToList();
+
+            //Debug.WriteLine(articole.ToString());
+            foreach(ArticolModel item in articole)
+            {
+                _context.Remove(item);
+            }
+
+            _context.SaveChanges();
+
+            //_context.Remove(articol);
+            //_context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult RevertArticol(int articolId)
+        {
+            ArticolModel? articol = _context.Articol
+                .Where(articol => articol.Id == articolId).Include(stire => stire.Domeniu).FirstOrDefault();
+            if (articol == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            _context.Remove(articol);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

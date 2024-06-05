@@ -16,6 +16,7 @@
         @if (articol.AccessLevel == "Public" || User.Identity.IsAuthenticated)
         {
             <h4><a asp-controller="Articol" asp-action="EditeazaArticol" asp-route-articolId="@articol.Id">Editeaza Articol</a></h4>
+            <h4><a asp-controller="Articol" asp-action="StergeArticol" asp-route-articolId="@articol.Id">Sterge Articol</a></h4>
         }
     }
 }
