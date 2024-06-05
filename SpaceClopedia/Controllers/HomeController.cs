@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SpaceClopedia.Logic;
 using SpaceClopedia.Models;
 using System.Diagnostics;
 
