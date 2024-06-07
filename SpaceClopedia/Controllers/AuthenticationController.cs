@@ -57,7 +57,7 @@ namespace SpaceClopedia.Controllers
                             model.DataInregistrare = DateTime.Now;
                             context.Utilizator.Add(model);
                             context.SaveChanges();
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("Index", "Articol");
                         }
                         catch (Exception ex)
                         {
@@ -96,7 +96,7 @@ namespace SpaceClopedia.Controllers
                         var claimIdentity = new ClaimsIdentity(claims, "AuthenticationCookie");
 
                         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIdentity));
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Articol");
                     }
                     else
                         ModelState.AddModelError(string.Empty, "Invalid username or password!");
@@ -125,7 +125,7 @@ namespace SpaceClopedia.Controllers
         public async Task<IActionResult> Logout()
         {
             if (User.Identity.IsAuthenticated == false)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Articol");
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }

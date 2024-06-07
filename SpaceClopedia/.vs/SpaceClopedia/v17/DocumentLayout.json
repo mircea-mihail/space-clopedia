@@ -1,0 +1,148 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|c:\\users\\ilinc\\onedrive\\desktop\\an3sem2\\paw\\space-clopedia\\spaceclopedia\\views\\articol\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|solutionrelative:views\\articol\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|c:\\users\\ilinc\\onedrive\\desktop\\an3sem2\\paw\\space-clopedia\\spaceclopedia\\views\\articol\\articol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|solutionrelative:views\\articol\\articol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|c:\\users\\ilinc\\onedrive\\desktop\\an3sem2\\paw\\space-clopedia\\spaceclopedia\\views\\articol\\articolepecategorii.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|solutionrelative:views\\articol\\articolepecategorii.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|c:\\users\\ilinc\\onedrive\\desktop\\an3sem2\\paw\\space-clopedia\\spaceclopedia\\controllers\\articolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|solutionrelative:controllers\\articolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__ProjectModels/SpaceClopedia/True/SqlTable/dbo.Utilizator.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|c:\\users\\ilinc\\onedrive\\desktop\\an3sem2\\paw\\space-clopedia\\spaceclopedia\\views\\articol\\adaugaarticol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|solutionrelative:views\\articol\\adaugaarticol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|c:\\users\\ilinc\\onedrive\\desktop\\an3sem2\\paw\\space-clopedia\\spaceclopedia\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|c:\\users\\ilinc\\onedrive\\desktop\\an3sem2\\paw\\space-clopedia\\spaceclopedia\\views\\articol\\editeazaarticol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{94FCDFAC-FF9F-4C77-990F-A48A8C7F883B}|SpaceClopedia.csproj|solutionrelative:views\\articol\\editeazaarticol.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "dbo.Utilizator [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__ProjectModels/SpaceClopedia/True/SqlTable/dbo.Utilizator.sql",
+              "ToolTip": "dbo.Utilizator [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-06-07T08:00:50.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Articol\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\Index.cshtml",
+              "RelativeToolTip": "Views\\Articol\\Index.cshtml",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAABAAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-07T07:50:24.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ArticolePeCategorii.cshtml",
+              "DocumentMoniker": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\ArticolePeCategorii.cshtml",
+              "RelativeDocumentMoniker": "Views\\Articol\\ArticolePeCategorii.cshtml",
+              "ToolTip": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\ArticolePeCategorii.cshtml",
+              "RelativeToolTip": "Views\\Articol\\ArticolePeCategorii.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T22:12:27.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Articol.cshtml",
+              "DocumentMoniker": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\Articol.cshtml",
+              "RelativeDocumentMoniker": "Views\\Articol\\Articol.cshtml",
+              "ToolTip": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\Articol.cshtml",
+              "RelativeToolTip": "Views\\Articol\\Articol.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T21:46:49.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ArticolController.cs",
+              "DocumentMoniker": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Controllers\\ArticolController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ArticolController.cs",
+              "ToolTip": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Controllers\\ArticolController.cs",
+              "RelativeToolTip": "Controllers\\ArticolController.cs",
+              "ViewState": "AQIAADgBAAAAAAAAAAAAwFABAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T21:01:59.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdaugaArticol.cshtml",
+              "DocumentMoniker": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\AdaugaArticol.cshtml",
+              "RelativeDocumentMoniker": "Views\\Articol\\AdaugaArticol.cshtml",
+              "ToolTip": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\AdaugaArticol.cshtml",
+              "RelativeToolTip": "Views\\Articol\\AdaugaArticol.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACIAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T21:03:13.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T23:02:34.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EditeazaArticol.cshtml",
+              "DocumentMoniker": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\EditeazaArticol.cshtml",
+              "RelativeDocumentMoniker": "Views\\Articol\\EditeazaArticol.cshtml",
+              "ToolTip": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\Views\\Articol\\EditeazaArticol.cshtml",
+              "RelativeToolTip": "Views\\Articol\\EditeazaArticol.cshtml",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-06T21:03:01.241Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -10,28 +10,33 @@
     var htmlContent = Markdown.ToHtml(articol.Continut);
 }
 
-<h2>@articol.Titlu</h2>
-
-<article>
-    <h3>Autor: @articol.Autor</h3>
-    <p>Adaugat la data de: @articol.DataCreare</p>
-    <p>Ultima modificare la data de: @articol.DataModificare</p>
-    <p>Categorie: @articol.Domeniu!.NumeDomeniu</p>
+<h1 class="text-center my-3">@articol.Titlu</h1>
+</br>
+<article>   
     @* <p>@articol.Continut</p> *@
     @* p>@Html.Raw(Html.Encode(articol.Continut).Replace("&#xD;&#xA;", "<br />"))</p> *@
-    <div>
-        @Html.Raw(htmlContent)
-        @if (Model.Image != null)
-        {
-            <div class="article-image">
-                <img src="@Url.Action("GetImage", "Articol", new { id = Model.Id })" alt="Article Image" class="img-fluid" />
+    <div class="row">
+        <div class="clearfix">
+            @if (Model.Image != null)
+            {
+                <img src="@Url.Action("GetImage", "Articol", new { id = Model.Id })" alt="Article Image" class="col-md-6 float-md-end mb-3 ms-md-3" style="max-width: 300px;" />
+            }
+            <div>
+                @Html.Raw(htmlContent)
             </div>
-        }
+        </div>
     </div>
+
+    <p>Creat: @articol.DataCreare</p>
+    <p>Ultima modificare: @articol.DataModificare</p>
+    <p>Autor: @articol.Autor</p>
+    <p class="d-inline-block bg-secondary text-dark p-1 rounded">Categorie: @articol.Domeniu!.NumeDomeniu</p>
+
+</article>
+<div class=" d-flex justify-content-start">
+    <a asp-controller="Articol" asp-action="Index" class="btn btn-success text-white border border-white border-2"> <i class="bi bi-arrow-left"></i>Intoarce-te</a>
     @if (User.Identity.IsAuthenticated && (rol != null && ((int)rol == 0 || (int)rol == 1)))
     {
-        <h4><a asp-controller="Articol" asp-action="RevertArticol" asp-route-articolId="@articol.Id">Reveniti la versiunea anterioara</a></h4>
+        <a asp-controller="Articol" asp-action="RevertArticol" asp-route-articolId="@articol.Id" class="btn btn-success text-white border border-white border-2">Reveniti la versiunea anterioara</a>
     }
-</article>
-
-<a asp-controller="Articol" asp-action="Index">Intoarce-te</a>
+</div>

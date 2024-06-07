@@ -1,24 +1,65 @@
 ﻿@model List<ArticolModel>
+@using SpaceClopedia.Logic
 
 @{
     List<ArticolModel> articole = Model;
     ViewData["Title"] = "SpaceClopedia";
-}
-
-<h1>Articolele mele super tari</h1>
-
-@{
-    foreach(ArticolModel articol in articole)
+    List<DomeniuModel> domeniiArticole = ViewBag.Domenii;
+    Rol? rol = (Rol)3;
+    if(ViewBag.Rol != null)
     {
-        // <h2>@articol.Titlu</h2>
-        // <p>@articol.Continut</p>
-        <h3><a asp-controller="Articol" asp-action="Articol" asp-route-articolId="@articol.Id">@articol.Titlu</a></h3>
-        @if (articol.AccessLevel == "Public" || User.Identity.IsAuthenticated)
-        {
-            <h4><a asp-controller="Articol" asp-action="EditeazaArticol" asp-route-articolId="@articol.Id">Editeaza Articol</a></h4>
-            <h4><a asp-controller="Articol" asp-action="StergeArticol" asp-route-articolId="@articol.Id">Sterge Articol</a></h4>
-        }
+        rol = ViewBag.Rol;
     }
+
 }
 
-<h3><a asp-controller="Articol" asp-action="AdaugaArticol">Adauga Articol</a></h3>
+<h1 class="text-center my-1">Cele mai noi articole</h1>
+<div class="text-center my-1">
+    <a asp-controller="Articol" asp-action="AdaugaArticol" class="btn btn-success btn-lg">
+        <i class="bi bi-plus"></i> Adaugă Articol
+    </a>
+</div>
+</br>
+
+<div class="d-flex flex-wrap">
+    @foreach (DomeniuModel domeniu in domeniiArticole)
+    {
+        <p class="mb-1 mr-1">
+            <a asp-controller="Articol" asp-action="ArticolePeCategorii" asp-route-domeniuId="@domeniu.Id" class="btn btn-sm btn-warning text-white border-white border-2 rounded-pill">
+                @domeniu.NumeDomeniu
+            </a>
+        </p>
+    }
+</div>
+
+<div class="row">
+    @foreach (ArticolModel articol in articole)
+    {
+        string continutTruncat = articol.Continut.Length > 100 ? articol.Continut.Substring(0, 100) + "..." : articol.Continut;
+        <div class="col-lg-4 mb-3">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <a asp-controller="Articol" asp-action="Articol" asp-route-articolId="@articol.Id" class="text-dark text-decoration-none">
+                        <h3 class="card-title">
+                       
+                                @articol.Titlu
+                        
+                        </h3>
+                        <p class="card-text">@continutTruncat</p>
+                    </a>
+
+                </div>
+
+
+                @if (articol.AccessLevel == "Public" || (User.Identity.IsAuthenticated && (int)rol != 3))
+                {
+                    <div class="card-footer d-flex justify-content-end">
+                        <a asp-controller="Articol" asp-action="EditeazaArticol" asp-route-articolId="@articol.Id" class="btn btn-info btn-sm text-white border border-white border-2">Editeaza Articol</a>
+                        <a asp-controller="Articol" asp-action="StergeArticol" asp-route-articolId="@articol.Id" class="btn btn-danger btn-sm text-white border border-white border-2">Sterge Articol</a>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+

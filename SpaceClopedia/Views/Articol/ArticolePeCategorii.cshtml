@@ -1,0 +1,51 @@
+﻿@model SortareViewModel
+
+@{
+    List<ArticolModel> articolePeCategorii = ViewBag.ArticoleCategorieCurenta;
+    ViewData["Title"] = "SpaceClopedia";
+    DomeniuModel DomeniuCurent = ViewBag.DomeniuCurent;
+    List<SelectListItem> SortTypeList = ViewBag.SortTypeList;
+}
+
+<h1 class="text-center my-3">Articolele din @DomeniuCurent.NumeDomeniu</h1>
+
+<form asp-controller="Articol" asp-action="ArticolePeCategorii" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.TipSortare" class="control-label">Ordoneaza Articolele</label>
+        <select asp-for="@Model.TipSortare" asp-items="@SortTypeList" class="form-control"></select>
+        <span asp-validation-for="@Model.TipSortare" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="@Model.IdDomeniuCurent" value="@DomeniuCurent.Id" />
+
+    <input type="submit" class="btn btn-bg btn-success text-white border-white border-5 rounded-pill" value="Sorteaza" />
+</form>
+</br>
+<div class="container">
+    <div class="row">
+        @foreach (ArticolModel articol in articolePeCategorii)
+        {
+            string continutTruncat = articol.Continut.Length > 100 ? articol.Continut.Substring(0, 100) + "..." : articol.Continut;
+            <div class="col-lg-4 mb-3">
+                <div class="card h-100 shadow">
+                    <div class="card-body">
+                        <a asp-controller="Articol" asp-action="Articol" asp-route-articolId="@articol.Id" class="text-dark text-decoration-none">
+                            <h3 class="card-title">
+                                @articol.Titlu
+                            </h3>
+                            <p class="card-text">@continutTruncat</p>
+                        </a>
+                    </div>
+                    @if (articol.AccessLevel == "Public" || User.Identity.IsAuthenticated)
+                    {
+                        <div class="card-footer d-flex justify-content-end">
+                            <a asp-controller="Articol" asp-action="EditeazaArticol" asp-route-articolId="@articol.Id" class="btn btn-info btn-sm text-white border border-white border-2">Editeaza Articol</a>
+                            <a asp-controller="Articol" asp-action="StergeArticol" asp-route-articolId="@articol.Id" class="btn btn-danger btn-sm text-white border border-white border-2 ml-2">Sterge Articol</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<h4>&nbsp;&nbsp;<a asp-controller="Articol" asp-action="Index" class="btn btn-sm btn-warning text-white border-white border-2 rounded-pill"><i class="bi bi-arrow-left"></i>Intoarce-te la toate articolele</a></h4>

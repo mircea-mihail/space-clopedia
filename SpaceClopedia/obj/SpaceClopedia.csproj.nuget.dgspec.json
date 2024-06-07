@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\xelar\\OneDrive\\Desktop\\space-clopedia\\SpaceClopedia\\SpaceClopedia.csproj": {}
+    "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\SpaceClopedia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\xelar\\OneDrive\\Desktop\\space-clopedia\\SpaceClopedia\\SpaceClopedia.csproj": {
+    "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\SpaceClopedia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\xelar\\OneDrive\\Desktop\\space-clopedia\\SpaceClopedia\\SpaceClopedia.csproj",
+        "projectUniqueName": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\SpaceClopedia.csproj",
         "projectName": "SpaceClopedia",
-        "projectPath": "C:\\Users\\xelar\\OneDrive\\Desktop\\space-clopedia\\SpaceClopedia\\SpaceClopedia.csproj",
-        "packagesPath": "C:\\Users\\xelar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\xelar\\OneDrive\\Desktop\\space-clopedia\\SpaceClopedia\\obj\\",
+        "projectPath": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\SpaceClopedia.csproj",
+        "packagesPath": "C:\\Users\\ilinc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ilinc\\OneDrive\\Desktop\\an3sem2\\PAW\\space-clopedia\\SpaceClopedia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\xelar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ilinc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -56,17 +56,17 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.6, )"
             }
           },
           "imports": [
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
