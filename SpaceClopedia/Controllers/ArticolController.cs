@@ -69,6 +69,13 @@ namespace SpaceClopedia.Controllers
             {
                 CuvantCautat = cuvantCautat;
             }
+
+            var cookieOptions = new CookieOptions
+            {
+                Expires = DateTime.Now // Set the expiration time to 50 seconds from now
+            };
+            Response.Cookies.Append("CuvantCautat", CuvantCautat, cookieOptions);
+
             if (CuvantCautat == "")
             {
                 return View(Articole);
@@ -84,7 +91,7 @@ namespace SpaceClopedia.Controllers
         {
             var cookieOptions = new CookieOptions
             {
-                Expires = DateTime.Now.AddSeconds(5) // Set the expiration time to 5 seconds from now
+                Expires = DateTime.Now.AddSeconds(50) // Set the expiration time to 50 seconds from now
             };
 
             CuvantCautat = cuvantCautat ?? "";

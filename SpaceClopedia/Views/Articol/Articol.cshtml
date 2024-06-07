@@ -12,6 +12,11 @@
 
 <h1 class="text-center my-3">@articol.Titlu</h1>
 </br>
+<p class="mb-1 mr-1">
+    <a asp-controller="Articol" asp-action="ArticolePeCategorii" asp-route-domeniuId="@articol.Domeniu.Id" class="btn btn-sm btn-warning text-white border-white border-2 rounded-pill">
+        @articol.Domeniu.NumeDomeniu
+    </a>
+</p>
 <article>   
     @* <p>@articol.Continut</p> *@
     @* p>@Html.Raw(Html.Encode(articol.Continut).Replace("&#xD;&#xA;", "<br />"))</p> *@
@@ -30,7 +35,8 @@
     <p>Creat: @articol.DataCreare</p>
     <p>Ultima modificare: @articol.DataModificare</p>
     <p>Autor: @articol.Autor</p>
-    <p class="d-inline-block bg-secondary text-dark p-1 rounded">Categorie: @articol.Domeniu!.NumeDomeniu</p>
+
+
 
 </article>
 <div class=" d-flex justify-content-start">
